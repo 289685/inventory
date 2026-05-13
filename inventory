@@ -3,9 +3,46 @@
 #include <string>
 
 using namespace std;
-void fail(const string& prompt, int& value);
 
-int main() {
+void fail(const string& prompt, int& value);
+void intro(int& open);
+void DisplayInventory(int& Choice,
+                      const vector<string>& resistors,
+                      const vector<string>& henrys,
+                      const vector<string>& batteries,
+                      const vector<string>& breadboard,
+                      const vector<string>& pot,
+                      const vector<string>& compasitors,
+                      const vector<string>& icChips,
+                      const vector<string>& BandS,
+                      const vector<int>& Rstock,
+                      const vector<int>& Hstock,
+                      const vector<int>& Bstock,
+                      const vector<int>& BRstock,
+                      const vector<int>& Pstock,
+                      const vector<int>& Cstock,
+                      const vector<int>& ICstock,
+                      const vector<int>& BSstock);
+
+void AddRemove(int& add, int& Choice, int& amount,
+               vector<string>& resistors,
+               vector<string>& henrys,
+               vector<string>& batteries,
+               vector<string>& breadboard,
+               vector<string>& pot,
+               vector<string>& compasitors,
+               vector<string>& icChips,
+               vector<string>& BandS,
+               vector<int>& Rstock,
+               vector<int>& Hstock,
+               vector<int>& Bstock,
+               vector<int>& BRstock,
+               vector<int>& Pstock,
+               vector<int>& Cstock,
+               vector<int>& ICstock,
+               vector<int>& BSstock);
+
+int main () {
 	vector<string> resistors = {
 		"1 ohm", "1.2 ohm", "1.5 ohm", "1.8 ohm", "2.2 ohm", "2.7 ohm", "3.3 ohm", "3.9 ohm", "4.7 ohm", "5.6 ohm",
 		"6.8 ohm", "8.2 ohm", "10 ohm", "12 ohm", "15 ohm", "18 ohm", "22 ohm", "27 ohm", "33 ohm", "39 ohm",
@@ -77,188 +114,26 @@ int main() {
 		4, 1, 2, 10, 1
 	};
 
-	int open, add, choice, amount, Choice;
 	int loop = 1;
-	do {
-		fail("1: View Inventory\n2: Add/Remove\nChoice: ", open);
+	int open, Choice, add, amount;
 
+	do {
+		intro(open);
 		if (open == 1) {
-			fail("Which Inventory\nResistors(1) Henrys(2) Batteries(3) Breadboard(4)\nPotentiometer(5) Compasitors(6) IC Chips(7) Buttons/switches(8)\nChoice:", choice);
-			if (choice == 1) {
-				for (int i = 0; i < resistors.size(); i++) {
-					cout << resistors[i] << " (" << Rstock[i] << ") ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			} else if (choice == 2) {
-				for (int i = 0; i < henrys.size(); i++) {
-					cout << henrys[i] << " (" << Hstock[i] << ") ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			} else if (choice == 3) {
-				for (int i = 0; i < batteries.size(); i++) {
-					cout << batteries[i] << " (" << Bstock[i] << ") ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			} else if (choice == 4) {
-				for (int i = 0; i < breadboard.size(); i++) {
-					cout << breadboard[i] << " (" << BRstock[i] << ") ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			} else if (choice == 5) {
-				for (int i = 0; i < pot.size(); i++) {
-					cout << pot[i] << " (" << Pstock[i] << ") ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			} else if (choice == 6) {
-				for (int i = 0; i < compasitors.size(); i++) {
-					cout << compasitors[i] << " (" << Cstock[i] << ") ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			} else if (choice == 7) {
-				for (int i = 0; i < icChips.size(); i++) {
-					cout << icChips[i] << " (" << ICstock[i] << ") ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			} else if (choice == 8) {
-				for (int i = 0; i < BandS.size(); i++) {
-					cout << BandS[i] << " (" << BSstock[i] << ") ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			}
+			DisplayInventory(Choice, resistors, henrys, batteries, breadboard, pot, compasitors, icChips, BandS, Rstock, Hstock, Bstock, BRstock, Pstock, Cstock, ICstock, BSstock);
+
 		}
 		else if (open == 2) {
-			fail ("1: Add, 2: Remove\n", add);
-			fail("Which Inventory\nResistors(1) Henrys(2) Batteries(3) Breadboard(4)\nPotentiometer(5) Compasitors(6) IC Chips(7) Buttons/switches(8)\nChoice:", choice);
-			if (choice == 1) {
-				cout << "Which component? (Enter number 1-" << resistors.size() << ")\n";
-				for (int i = 0; i < resistors.size(); i++) {
-					cout << "(" << i + 1 << ") " << resistors[i] << "  ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			}
-			else if (choice == 2) {
-				cout << "Which component? (Enter number 1-" << henrys.size() << ")\n";
-				for (int i = 0; i < henrys.size(); i++) {
-					cout << "(" << i + 1 << ") " << henrys[i] << "  ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			}
-			else if (choice == 3) {
-				cout << "Which component? (Enter number 1-" << batteries.size() << ")\n";
-				for (int i = 0; i < batteries.size(); i++) {
-					cout << "(" << i + 1 << ") " << batteries[i] << "  ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			}
-			else if (choice == 4) {
-				cout << "Which component? (Enter number 1-" << breadboard.size() << ")\n";
-				for (int i = 0; i < breadboard.size(); i++) {
-					cout << "(" << i + 1 << ") " << breadboard[i] << "  ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			}
-			else if (choice == 5) {
-				cout << "Which component? (Enter number 1-" << pot.size() << ")\n";
-				for (int i = 0; i < pot.size(); i++) {
-					cout << "(" << i + 1 << ") " << pot[i] << "  ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			}
-			else if (choice == 6) {
-				cout << "Which component? (Enter number 1-" << compasitors.size() << ")\n";
-				for (int i = 0; i < compasitors.size(); i++) {
-					cout << "(" << i + 1 << ") " << compasitors[i] << "  ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			}
-			else if (choice == 7) {
-				cout << "Which component? (Enter number 1-" << icChips.size() << ")\n";
-				for (int i = 0; i < icChips.size(); i++) {
-					cout << "(" << i + 1 << ") " << icChips[i] << "  ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			}
-			else if (choice == 7) {
-				cout << "Which component? (Enter number 1-" << BandS.size() << ")\n";
-				for (int i = 0; i < BandS.size(); i++) {
-					cout << "(" << i + 1 << ") " << BandS[i] << "  ";
-					if ((i + 1) % 4 == 0) cout << endl;
-				}
-			}
-
-			fail("\nSelection: ", Choice);
-			int idx = Choice - 1;
-
-			if (choice == 1) {
-				fail ("How many? ", amount);
-
-				if (add == 2) amount = -amount;
-
-				Rstock[Choice - 1] += amount;
-				cout << "Updated " << resistors[Choice - 1] << " total to: " << Rstock[Choice - 1] << endl;
-			}
-			else if (choice == 2) {
-				fail ("How many? ", amount);
-
-				if (add == 2) amount = -amount;
-
-				Hstock[Choice - 1] += amount;
-				cout << "Updated " << henrys[Choice - 1] << " total to: " << Hstock[Choice - 1] << endl;
-			}
-			else if (choice == 3) {
-				fail ("How many? ", amount);
-
-				if (add == 2) amount = -amount;
-
-				Bstock[Choice - 1] += amount;
-				cout << "Updated " << batteries[Choice - 1] << " total to: " << Bstock[Choice - 1] << endl;
-			}
-			else if (choice == 4) {
-				fail ("How many? ", amount);
-
-				if (add == 2) amount = -amount;
-
-				BRstock[Choice - 1] += amount;
-				cout << "Updated " << breadboard[Choice - 1] << " total to: " << BRstock[Choice - 1] << endl;
-			}
-			else if (choice == 5) {
-				fail ("How many? ", amount);
-
-				if (add == 2) amount = -amount;
-
-				Pstock[Choice - 1] += amount;
-				cout << "Updated " << pot[Choice - 1] << " total to: " << Pstock[Choice - 1] << endl;
-			}
-			else if (choice == 6) {
-				fail ("How many? ", amount);
-
-				if (add == 2) amount = -amount;
-
-				Cstock[Choice - 1] += amount;
-				cout << "Updated " << compasitors[Choice - 1] << " total to: " << Cstock[Choice - 1] << endl;
-			}
-			else if (choice == 7) {
-				fail ("How many? ", amount);
-
-				if (add == 2) amount = -amount;
-
-				ICstock[Choice - 1] += amount;
-				cout << "Updated " << icChips[Choice - 1] << " total to: " << ICstock[Choice - 1] << endl;
-			}
-			else if (choice == 8) {
-				fail ("How many? ", amount);
-
-				if (add == 2) amount = -amount;
-
-				BSstock[Choice - 1] += amount;
-				cout << "Updated " << BandS[Choice - 1] << " total to: " << BSstock[Choice - 1] << endl;
-			}
+			AddRemove(add, Choice, amount, resistors, henrys, batteries, breadboard, pot, compasitors, icChips, BandS, Rstock, Hstock, Bstock, BRstock, Pstock, Cstock, ICstock, BSstock);
 		}
-	}
-	while(loop == 1);
+		else if (open == 3) {
+			loop = 0;
+		}
+	} while (loop == 1);
 
 	return 0;
 }
+
 void fail(const string& prompt, int& value) {
 	while (true) {
 		cout << prompt;
@@ -270,5 +145,221 @@ void fail(const string& prompt, int& value) {
 		} else {
 			break;
 		}
+	}
+}
+
+void intro(int& open) {
+	fail("1: View Inventory\n2: Add/Remove\n3: Exit\nChoice: ", open);
+}
+
+void DisplayInventory(int& choice,
+                      const vector<string>& resistors,
+                      const vector<string>& henrys,
+                      const vector<string>& batteries,
+                      const vector<string>& breadboard,
+                      const vector<string>& pot,
+                      const vector<string>& compasitors,
+                      const vector<string>& icChips,
+                      const vector<string>& BandS,
+                      const vector<int>& Rstock,
+                      const vector<int>& Hstock,
+                      const vector<int>& Bstock,
+                      const vector<int>& BRstock,
+                      const vector<int>& Pstock,
+                      const vector<int>& Cstock,
+                      const vector<int>& ICstock,
+                      const vector<int>& BSstock)
+{
+
+	fail("Which Inventory\nResistors(1) Henrys(2) Batteries(3) Breadboard(4)\nPotentiometer(5) Compasitors(6) IC Chips(7) Buttons/switches(8)\nChoice:", choice);
+	if (choice == 1) {
+		for (int i = 0; i < resistors.size(); i++) {
+			cout << resistors[i] << " (" << Rstock[i] << ") ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	} else if (choice == 2) {
+		for (int i = 0; i < henrys.size(); i++) {
+			cout << henrys[i] << " (" << Hstock[i] << ") ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	} else if (choice == 3) {
+		for (int i = 0; i < batteries.size(); i++) {
+			cout << batteries[i] << " (" << Bstock[i] << ") ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	} else if (choice == 4) {
+		for (int i = 0; i < breadboard.size(); i++) {
+			cout << breadboard[i] << " (" << BRstock[i] << ") ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	} else if (choice == 5) {
+		for (int i = 0; i < pot.size(); i++) {
+			cout << pot[i] << " (" << Pstock[i] << ") ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	} else if (choice == 6) {
+		for (int i = 0; i < compasitors.size(); i++) {
+			cout << compasitors[i] << " (" << Cstock[i] << ") ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	} else if (choice == 7) {
+		for (int i = 0; i < icChips.size(); i++) {
+			cout << icChips[i] << " (" << ICstock[i] << ") ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	} else if (choice == 8) {
+		for (int i = 0; i < BandS.size(); i++) {
+			cout << BandS[i] << " (" << BSstock[i] << ") ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	}
+	cout << endl;
+}
+
+void AddRemove(int& add, int& Choice, int& amount,
+               vector<string>& resistors,
+               vector<string>& henrys,
+               vector<string>& batteries,
+               vector<string>& breadboard,
+               vector<string>& pot,
+               vector<string>& compasitors,
+               vector<string>& icChips,
+               vector<string>& BandS,
+               vector<int>& Rstock,
+               vector<int>& Hstock,
+               vector<int>& Bstock,
+               vector<int>& BRstock,
+               vector<int>& Pstock,
+               vector<int>& Cstock,
+               vector<int>& ICstock,
+               vector<int>& BSstock)
+{
+	fail("1: Add, 2: Remove\n", add);
+	int category;
+	fail("Which Inventory\nResistors(1) Henrys(2) Batteries(3) Breadboard(4)\nPotentiometer(5) Compasitors(6) IC Chips(7) Buttons/switches(8)\nChoice:", category);
+
+	if (category == 1) {
+		cout << "Which component? (Enter number 1-" << resistors.size() << ")\n";
+		for (int i = 0; i < resistors.size(); i++) {
+			cout << "(" << i + 1 << ") " << resistors[i] << "  ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	}
+	else if (category == 2) {
+		cout << "Which component? (Enter number 1-" << henrys.size() << ")\n";
+		for (int i = 0; i < henrys.size(); i++) {
+			cout << "(" << i + 1 << ") " << henrys[i] << "  ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	}
+	else if (category == 3) {
+		cout << "Which component? (Enter number 1-" << batteries.size() << ")\n";
+		for (int i = 0; i < batteries.size(); i++) {
+			cout << "(" << i + 1 << ") " << batteries[i] << "  ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	}
+	else if (category == 4) {
+		cout << "Which component? (Enter number 1-" << breadboard.size() << ")\n";
+		for (int i = 0; i < breadboard.size(); i++) {
+			cout << "(" << i + 1 << ") " << breadboard[i] << "  ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	}
+	else if (category == 5) {
+		cout << "Which component? (Enter number 1-" << pot.size() << ")\n";
+		for (int i = 0; i < pot.size(); i++) {
+			cout << "(" << i + 1 << ") " << pot[i] << "  ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	}
+	else if (category == 6) {
+		cout << "Which component? (Enter number 1-" << compasitors.size() << ")\n";
+		for (int i = 0; i < compasitors.size(); i++) {
+			cout << "(" << i + 1 << ") " << compasitors[i] << "  ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	}
+	else if (category == 7) {
+		cout << "Which component? (Enter number 1-" << icChips.size() << ")\n";
+		for (int i = 0; i < icChips.size(); i++) {
+			cout << "(" << i + 1 << ") " << icChips[i] << "  ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	}
+	else if (category == 8) {
+		cout << "Which component? (Enter number 1-" << BandS.size() << ")\n";
+		for (int i = 0; i < BandS.size(); i++) {
+			cout << "(" << i + 1 << ") " << BandS[i] << "  ";
+			if ((i + 1) % 4 == 0) cout << endl;
+		}
+	}
+
+	fail("\nSelection: ", Choice);
+	int idx = Choice - 1;
+
+	if (category == 1) {
+		fail ("How many? ", amount);
+
+		if (add == 2) amount = -amount;
+
+		Rstock[idx] += amount;
+		cout << "Updated " << resistors[idx] << " total to: " << Rstock[idx] << endl;
+	}
+	else if (category == 2) {
+		fail ("How many? ", amount);
+
+		if (add == 2) amount = -amount;
+
+		Hstock[idx] += amount;
+		cout << "Updated " << henrys[idx] << " total to: " << Hstock[idx] << endl;
+	}
+	else if (category == 3) {
+		fail ("How many? ", amount);
+
+		if (add == 2) amount = -amount;
+
+		Bstock[idx] += amount;
+		cout << "Updated " << batteries[idx] << " total to: " << Bstock[idx] << endl;
+	}
+	else if (category == 4) {
+		fail ("How many? ", amount);
+
+		if (add == 2) amount = -amount;
+
+		BRstock[idx] += amount;
+		cout << "Updated " << breadboard[idx] << " total to: " << BRstock[idx] << endl;
+	}
+	else if (category == 5) {
+		fail ("How many? ", amount);
+
+		if (add == 2) amount = -amount;
+
+		Pstock[idx] += amount;
+		cout << "Updated " << pot[idx] << " total to: " << Pstock[idx] << endl;
+	}
+	else if (category == 6) {
+		fail ("How many? ", amount);
+
+		if (add == 2) amount = -amount;
+
+		Cstock[idx] += amount;
+		cout << "Updated " << compasitors[idx] << " total to: " << Cstock[idx] << endl;
+	}
+	else if (category == 7) {
+		fail ("How many? ", amount);
+
+		if (add == 2) amount = -amount;
+
+		ICstock[idx] += amount;
+		cout << "Updated " << icChips[idx] << " total to: " << ICstock[idx] << endl;
+	}
+	else if (category == 8) {
+		fail ("How many? ", amount);
+
+		if (add == 2) amount = -amount;
+
+		BSstock[idx] += amount;
+		cout << "Updated " << BandS[idx] << " total to: " << BSstock[idx] << endl;
 	}
 }
