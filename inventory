@@ -116,7 +116,7 @@ int main () {
 
 	int loop = 1; //starts loop
 	int open, Choice, add, amount; //variables
-
+cout << "This program is to keep track of electrical components in the shop\n";
 	do { //start of loop
 		intro(open);
 		if (open == 1) { //if input = 1 it displays Inventory
@@ -171,7 +171,7 @@ void DisplayInventory(int& choice,
                       const vector<int>& BSstock)
 {
 
-	fail("Which Inventory\nResistors(1) \nInductor(2) \nBatteries(3) \nBreadboard(4)\nPotentiometer(5) \nCompasitors(6) \nIC Chips(7) \nButtons/switches(8)\nChoice:", choice);
+	fail("Which Inventory\nResistors(1) \nInductor(2) \nBatteries(3) \nBreadboard(4)\nPotentiometer(5) \nCapacitor(6) \nIC Chips(7) \nButtons/switches(8)\nChoice:", choice);
 	if (choice == 1) { //depending on input displays different inventory
 		cout << "Component | Stock\n";
 		for (int i = 0; i < resistors.size(); i++) {
@@ -236,7 +236,7 @@ void AddRemove(int& add, int& Choice, int& amount,
 {
 	fail("1: Add, 2: Remove\n", add); //asks to add or remove
 	int category;
-	fail("Which Inventory\nResistors(1) Inductor(2) Batteries(3) Breadboard(4)\nPotentiometer(5) Compasitors(6) IC Chips(7) Buttons/switches(8)\nChoice:", category);
+	fail("Which Inventory\nResistors(1) \nInductor(2) \nBatteries(3) \nBreadboard(4)\nPotentiometer(5) \nCapacitor(6) \nIC Chips(7) \nButtons/switches(8)\nChoice:", category);
 
 	if (category == 1) { //depending on input will choose different storage
 		cout << "Which component? (Enter number 1-" << resistors.size() << ")\n";
