@@ -1,7 +1,7 @@
 //this program will keep track and alter chosen components
 //it gives you the option to either just view the inventory or to choose from different components to add/remove
 //there are 8 different catagories to choose from
-//it holds close to 200 items
+//its close to 200 items
 //it starts by displaying the menu and asking if you just want to view or if you want to add or subtract
 
 #include <iostream> //input output
@@ -180,7 +180,7 @@ void DisplayInventory(int& choice,
                       const vector<int>& BSstock)
 {
 
-	fail("Which Inventory\nResistors(1) \nInductor(2) \nBatteries(3) \nBreadboard(4)\nPotentiometer(5) \nCapacitor(6) \nIC Chips(7) \nButtons/switches(8)\nChoice:", choice);
+	fail("Which Inventory\nResistors(1) \nInductor(2) \nBatteries(3) \nBreadboard(4)\nPotentiometer(5) \nCapacitors(6) \nIC Chips(7) \nButtons/switches(8)\nChoice:", choice);
 	if (choice == 1) { //depending on input displays different inventory
 		cout << "Component | Stock\n";
 		for (int i = 0; i < resistors.size(); i++) {
@@ -245,54 +245,62 @@ void AddRemove(int& add, int& Choice, int& amount,
 {
 	fail("1: Add, 2: Remove\n", add); //asks to add or remove
 	int category;
-	fail("Which Inventory\nResistors(1) \nInductor(2) \nBatteries(3) \nBreadboard(4)\nPotentiometer(5) \nCapacitor(6) \nIC Chips(7) \nButtons/switches(8)\nChoice:", category);
+	fail("Which Inventory\nResistors(1) \nInductor(2) \nBatteries(3) \nBreadboard(4)\nPotentiometer(5) \nCapacitors(6) \nIC Chips(7) \nButtons/switches(8)\nChoice:", category);
 
 	if (category == 1) { //depending on input will choose different storage
 		cout << "Which component? (Enter number 1-" << resistors.size() << ")\n";
+		cout << "Component | Stock\n";
 		for (int i = 0; i < resistors.size(); i++) {
-			cout << "(" << i + 1 << ") " << resistors[i] << "\n";
+			cout << "(" << i + 1 << ") " << resistors[i] << " | " << Rstock[i]<< "\n";
 		}
 	}
 	else if (category == 2) {
 		cout << "Which component? (Enter number 1-" << inductor.size() << ")\n";
+		cout << "Component | Stock\n";
 		for (int i = 0; i < inductor.size(); i++) {
-			cout << "(" << i + 1 << ") " << inductor[i] << "\n";
+			cout << "(" << i + 1 << ") " << inductor[i] << " | " << Hstock[i]<< "\n";
 		}
 	}
 	else if (category == 3) {
 		cout << "Which component? (Enter number 1-" << batteries.size() << ")\n";
+		cout << "Component | Stock\n";
 		for (int i = 0; i < batteries.size(); i++) {
-			cout << "(" << i + 1 << ") " << batteries[i] << "\n";
+			cout << "(" << i + 1 << ") " << batteries[i] << " | " << Bstock[i]<< "\n";
 		}
 	}
 	else if (category == 4) {
 		cout << "Which component? (Enter number 1-" << breadboard.size() << ")\n";
+		cout << "Component | Stock\n";
 		for (int i = 0; i < breadboard.size(); i++) {
-			cout << "(" << i + 1 << ") " << breadboard[i] << "\n";
+			cout << "(" << i + 1 << ") " << breadboard[i] << " | " << BRstock[i]<< "\n";
 		}
 	}
 	else if (category == 5) {
 		cout << "Which component? (Enter number 1-" << pot.size() << ")\n";
+		cout << "Component | Stock\n";
 		for (int i = 0; i < pot.size(); i++) {
-			cout << "(" << i + 1 << ") " << pot[i] << "\n";
+			cout << "(" << i + 1 << ") " << pot[i] << " | " << Pstock[i]<< "\n";
 		}
 	}
 	else if (category == 6) {
 		cout << "Which component? (Enter number 1-" << compasitors.size() << ")\n";
+		cout << "Component | Stock\n";
 		for (int i = 0; i < compasitors.size(); i++) {
-			cout << "(" << i + 1 << ") " << compasitors[i] << "\n";
+			cout << "(" << i + 1 << ") " << compasitors[i] << " | " << Cstock[i]<< "\n";
 		}
 	}
 	else if (category == 7) {
 		cout << "Which component? (Enter number 1-" << icChips.size() << ")\n";
+		cout << "Component | Stock\n";
 		for (int i = 0; i < icChips.size(); i++) {
-			cout << "(" << i + 1 << ") " << icChips[i] << "\n";
+			cout << "(" << i + 1 << ") " << icChips[i] << " | " << ICstock[i]<< "\n";
 		}
 	}
 	else if (category == 8) {
 		cout << "Which component? (Enter number 1-" << BandS.size() << ")\n";
+		cout << "Component | Stock\n";
 		for (int i = 0; i < BandS.size(); i++) {
-			cout << "(" << i + 1 << ") " << BandS[i] << "\n";
+			cout << "(" << i + 1 << ") " << BandS[i] << " | " << BSstock[i]<< "\n";
 			if ((i + 1) % 4 == 0) cout << endl;
 		}
 	}
