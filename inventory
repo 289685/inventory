@@ -50,44 +50,44 @@ void AddRemove(int& add, int& Choice, int& amount, //takes in input and adds/rem
 
 int main () {
 	vector<string> resistors = {
-		"1 ohm", "1.2 ohm", "1.5 ohm", "1.8 ohm", "2.2 ohm", "2.7 ohm", "3.3 ohm", "3.9 ohm", "4.7 ohm", "5.6 ohm",
-		"6.8 ohm", "8.2 ohm", "10 ohm", "12 ohm", "15 ohm", "18 ohm", "22 ohm", "27 ohm", "33 ohm", "39 ohm",
-		"47 ohm", "56 ohm", "68 ohm", "82 ohm", "100 ohm", "120 ohm", "150 ohm", "180 ohm", "200 ohm", "220 ohm",
-		"270 ohm", "300 ohm", "330 ohm", "390 ohm", "470 ohm", "560 ohm", "620 ohm", "680 ohm", "820 ohm", "1k ohm",
-		"1.2k ohm", "1.5k ohm", "1.8k ohm", "2.2k ohm", "2.7k ohm", "3.3k ohm", "3.9k ohm", "4.7k ohm", "5.6k ohm", "6.8k ohm",
-		"8.2k ohm", "10k ohm", "12k ohm", "15k ohm", "18k ohm", "22k ohm", "27k ohm", "33k ohm", "39k ohm", "47k ohm",
-		"56k ohm", "68k ohm", "75k ohm", "82k ohm", "100k ohm", "120k ohm", "150k ohm", "180k ohm", "220k ohm", "270k ohm",
-		"330k ohm", "390k ohm", "470k ohm", "560k ohm", "680k ohm", "820k ohm", "1M ohm","4.7M ohm","10M ohm", "22M ohm",
+		"1 ohm    ", "1.2 ohm  ", "1.5 ohm  ", "1.8 ohm  ", "2.2 ohm  ", "2.7 ohm  ", "3.3 ohm  ", "3.9 ohm  ", "4.7 ohm  ", "5.6 ohm  ",
+		"6.8 ohm  ", "8.2 ohm  ", "10 ohm   ", "12 ohm   ", "15 ohm   ", "18 ohm   ", "22 ohm   ", "27 ohm   ", "33 ohm   ", "39 ohm   ",
+		"47 ohm   ", "56 ohm   ", "68 ohm   ", "82 ohm   ", "100 ohm  ", "120 ohm  ", "150 ohm  ", "180 ohm  ", "200 ohm  ", "220 ohm  ",
+		"270 ohm  ", "300 ohm  ", "330 ohm  ", "390 ohm  ", "470 ohm  ", "560 ohm  ", "620 ohm  ", "680 ohm  ", "820 ohm  ", "1k ohm   ",
+		"1.2k ohm ", "1.5k ohm ", "1.8k ohm ", "2.2k ohm ", "2.7k ohm ", "3.3k ohm ", "3.9k ohm ", "4.7k ohm ", "5.6k ohm ", "6.8k ohm ",
+		"8.2k ohm ", "10k ohm  ", "12k ohm  ", "15k ohm  ", "18k ohm  ", "22k ohm  ", "27k ohm  ", "33k ohm  ", "39k ohm  ", "47k ohm  ",
+		"56k ohm  ", "68k ohm  ", "75k ohm  ", "82k ohm  ", "100k ohm ", "120k ohm ", "150k ohm ", "180k ohm ", "220k ohm ", "270k ohm ",
+		"330k ohm ", "390k ohm ", "470k ohm ", "560k ohm ", "680k ohm ", "820k ohm ", "1M ohm   ", "4.7M ohm ", "10M ohm  ", "22M ohm  ",
 	};
 	vector<string> inductor = {
-		"10 uH", "22uH", "47uH", "220uH", "1 mH", "2.2 mH", "4.7 mH", "10 mH", "22 mH", "33 mH", "47 mH", "100 mH"
+		"10 uH    ", "22uH     ", "47uH     ", "220uH    ", "1 mH     ", "2.2 mH   ", "4.7 mH   ", "10 mH    ", "22 mH    ", "33 mH    ", "47 mH    ", "100 mH   "
 	};
 	vector<string> batteries = {
-		"9 V", "1.5 V"
+		"9 V  ", "1.5 V"
 	};
 	vector<string> breadboard = {
 		"bread board"
 	};
 	vector<string> pot = {
-		"1k ohm pot", "5k ohm pot", "50k ohm pot", "100k ohm pot", "1M ohm pot", "2M ohm pot"
+		"1k ohm pot   ", "5k ohm pot   ", "50k ohm pot  ", "100k ohm pot ", "1M ohm pot   ", "2M ohm pot   "
 	};
 	vector<string> compasitors = {
-		"474k Radial","105K Radial","102K Radial","224K Radial","104K Radial","473K Radial","103K Radial","101K Radial",".1 J Radial",
-		".47 Micro F","1 Micro F","220 Micro F","4.7 Micro F  Ax","4.7 Micro F","330 Micro F","470 Micro F","22 Micro F",
-		"10 Micro F","4700 Micro F","47 Micro F","1000 Micro F","2200 Micro F","100 Micro F Ax","33 Micro F","100 Micro F"
+		"474k Radial         ","105K Radial         ","102K Radial         ","224K Radial         ","104K Radial         ","473K Radial         ","103K Radial         ","101K Radial         ",".1 J Radial         ",
+		".47 Micro F         ","1 Micro F           ","220 Micro F         ","4.7 Micro F  Ax     ","4.7 Micro F         ","330 Micro F         ","470 Micro F         ","22 Micro F          ",
+		"10 Micro F          ","4700 Micro F        ","47 Micro F          ","1000 Micro F        ","2200 Micro F        ","100 Micro F Ax      ","33 Micro F          ","100 Micro F         "
 	};
 	vector<string> icChips = {
-		"ic chip 7409","ic chip 4001","ic chip 4017","ic chip 4029","ic chip 74157","ic chip 9526","ic chip 7420",
-		"ic chip 74595","ic chip 7719","ic chip 4511","ic chip 9525","ic chip 74151","ic chip 74193","ic chip 4011",
-		"ic chip 7488","ic chip 7489","ic chip 7402","ic chip 7411","ic chip 7409","ic chip 7490","ic chip 9226",
-		"ic chip 7414","ic chip 7400","ic chip 7408","ic chip 7402","ic chip 74147","ic chip 74037","ic chip 7432",
-		"ic chip 7486","ic chip 7451","ic chip MH7489","ic chip 7932","ic chip 7485","ic chip 74138","ic chip 7474",
-		"ic chip 74154","ic chip 74125","ic chip 74190","ic chip 7430","ic chip 74191","ic chip 74107","ic chip 74192",
-		"ic chip 74148","ic chip 7495","ic chip 7447","ic chip 7442","ic chip 74121","ic chip 7475","ic chip 74163",
-		"ic chip 74150","ic chip 74164"
+		"ic chip 7409 ", "ic chip 4001 ", "ic chip 4017 ", "ic chip 4029 ", "ic chip 74157", "ic chip 9526 ", "ic chip 7420 ",
+		"ic chip 74595", "ic chip 7719 ", "ic chip 4511 ", "ic chip 9525 ", "ic chip 74151", "ic chip 74193", "ic chip 4011 ",
+		"ic chip 7488 ", "ic chip 7489 ", "ic chip 7402 ", "ic chip 7411 ", "ic chip 7409 ", "ic chip 7490 ", "ic chip 9226 ",
+		"ic chip 7414 ", "ic chip 7400 ", "ic chip 7408 ", "ic chip 7402 ", "ic chip 74147", "ic chip 74037", "ic chip 7432 ",
+		"ic chip 7486 ", "ic chip 7451 ", "ic chip MH7489","ic chip 7932 ", "ic chip 7485 ", "ic chip 74138", "ic chip 7474 ",
+		"ic chip 74154", "ic chip 74125", "ic chip 74190", "ic chip 7430 ", "ic chip 74191", "ic chip 74107", "ic chip 74192",
+		"ic chip 74148", "ic chip 7495 ", "ic chip 7447 ", "ic chip 7442 ", "ic chip 74121", "ic chip 7475 ", "ic chip 74163",
+		"ic chip 74150", "ic chip 74164"
 	};
 	vector<string> BandS = {
-		"button", "8 prong", "4 prong","3 prong","2 prong"
+		"button  ", "8 prong ", "4 prong ", "3 prong ", "2 prong "
 	};
 
 	vector<int> Rstock = {
@@ -182,42 +182,42 @@ void DisplayInventory(int& choice,
 
 	fail("Which Inventory\nResistors(1) \nInductor(2) \nBatteries(3) \nBreadboard(4)\nPotentiometer(5) \nCapacitors(6) \nIC Chips(7) \nButtons/switches(8)\nChoice:", choice);
 	if (choice == 1) { //depending on input displays different inventory
-		cout << "Component | Stock\n";
+		cout << "Component   | Stock\n";
 		for (int i = 0; i < resistors.size(); i++) {
 			cout << resistors[i] << " | " << Rstock[i] << endl;
 		}
 	} else if (choice == 2) {
-		cout << "Component | Stock\n";
+		cout << "Component   | Stock\n";
 		for (int i = 0; i < inductor.size(); i++) {
 			cout << inductor[i] << " | " << Hstock[i] << endl;
 		}
 	} else if (choice == 3) {
-		cout << "Component | Stock\n";
+		cout << "Component   | Stock\n";
 		for (int i = 0; i < batteries.size(); i++) {
 			cout << batteries[i] << " | " << Bstock[i] << endl;
 		}
 	} else if (choice == 4) {
-		cout << "Component | Stock\n";
+		cout << "Component   | Stock\n";
 		for (int i = 0; i < breadboard.size(); i++) {
 			cout << breadboard[i] << " | " << BRstock[i] << endl;
 		}
 	} else if (choice == 5) {
-		cout << "Component | Stock\n";
+		cout << "Component   | Stock\n";
 		for (int i = 0; i < pot.size(); i++) {
 			cout << pot[i] << " | " << Pstock[i] << endl;
 		}
 	} else if (choice == 6) {
-		cout << "Component | Stock\n";
+		cout << "Component           | Stock\n";
 		for (int i = 0; i < compasitors.size(); i++) {
 			cout << compasitors[i] << " | " << Cstock[i] << endl;
 		}
 	} else if (choice == 7) {
-		cout << "Component | Stock\n";
+		cout << "Component   | Stock\n";
 		for (int i = 0; i < icChips.size(); i++) {
 			cout << icChips[i] << " | " << ICstock[i] << endl;
 		}
 	} else if (choice == 8) {
-		cout << "Component | Stock\n";
+		cout << "Component   | Stock\n";
 		for (int i = 0; i < BandS.size(); i++) {
 			cout << BandS[i] << " | " << BSstock[i] << endl;
 		}
@@ -249,56 +249,56 @@ void AddRemove(int& add, int& Choice, int& amount,
 
 	if (category == 1) { //depending on input will choose different storage
 		cout << "Which component? (Enter number 1-" << resistors.size() << ")\n";
-		cout << "Component | Stock\n";
+		cout << "       Component   | Stock\n";
 		for (int i = 0; i < resistors.size(); i++) {
 			cout << "(" << i + 1 << ") " << resistors[i] << " | " << Rstock[i]<< "\n";
 		}
 	}
 	else if (category == 2) {
 		cout << "Which component? (Enter number 1-" << inductor.size() << ")\n";
-		cout << "Component | Stock\n";
+		cout << "       Component   | Stock\n";
 		for (int i = 0; i < inductor.size(); i++) {
 			cout << "(" << i + 1 << ") " << inductor[i] << " | " << Hstock[i]<< "\n";
 		}
 	}
 	else if (category == 3) {
 		cout << "Which component? (Enter number 1-" << batteries.size() << ")\n";
-		cout << "Component | Stock\n";
+		cout << "       Component   | Stock\n";
 		for (int i = 0; i < batteries.size(); i++) {
 			cout << "(" << i + 1 << ") " << batteries[i] << " | " << Bstock[i]<< "\n";
 		}
 	}
 	else if (category == 4) {
 		cout << "Which component? (Enter number 1-" << breadboard.size() << ")\n";
-		cout << "Component | Stock\n";
+		cout << "       Component   | Stock\n";
 		for (int i = 0; i < breadboard.size(); i++) {
 			cout << "(" << i + 1 << ") " << breadboard[i] << " | " << BRstock[i]<< "\n";
 		}
 	}
 	else if (category == 5) {
 		cout << "Which component? (Enter number 1-" << pot.size() << ")\n";
-		cout << "Component | Stock\n";
+		cout << "       Component   | Stock\n";
 		for (int i = 0; i < pot.size(); i++) {
 			cout << "(" << i + 1 << ") " << pot[i] << " | " << Pstock[i]<< "\n";
 		}
 	}
 	else if (category == 6) {
 		cout << "Which component? (Enter number 1-" << compasitors.size() << ")\n";
-		cout << "Component | Stock\n";
+		cout << "       Component           | Stock\n";
 		for (int i = 0; i < compasitors.size(); i++) {
 			cout << "(" << i + 1 << ") " << compasitors[i] << " | " << Cstock[i]<< "\n";
 		}
 	}
 	else if (category == 7) {
 		cout << "Which component? (Enter number 1-" << icChips.size() << ")\n";
-		cout << "Component | Stock\n";
+		cout << "       Component   | Stock\n";
 		for (int i = 0; i < icChips.size(); i++) {
 			cout << "(" << i + 1 << ") " << icChips[i] << " | " << ICstock[i]<< "\n";
 		}
 	}
 	else if (category == 8) {
 		cout << "Which component? (Enter number 1-" << BandS.size() << ")\n";
-		cout << "Component | Stock\n";
+		cout << "       Component   | Stock\n";
 		for (int i = 0; i < BandS.size(); i++) {
 			cout << "(" << i + 1 << ") " << BandS[i] << " | " << BSstock[i]<< "\n";
 			if ((i + 1) % 4 == 0) cout << endl;
