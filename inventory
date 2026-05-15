@@ -1,12 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include <iostream> //input output
+#include <vector> //library for vectors
+#include <string> //library for string
 
 using namespace std;
 
-void fail(const string& prompt, int& value);
-void intro(int& open);
-void DisplayInventory(int& Choice,
+void fail(const string& prompt, int& value); //fail statment to prevent error
+void intro(int& open); //displays intro and options
+void DisplayInventory(int& Choice, //asks for which Inventory then displays chosen Inventory
                       const vector<string>& resistors,
                       const vector<string>& henrys,
                       const vector<string>& batteries,
@@ -24,7 +24,7 @@ void DisplayInventory(int& Choice,
                       const vector<int>& ICstock,
                       const vector<int>& BSstock);
 
-void AddRemove(int& add, int& Choice, int& amount,
+void AddRemove(int& add, int& Choice, int& amount, //takes in input and adds/removes value
                vector<string>& resistors,
                vector<string>& henrys,
                vector<string>& batteries,
@@ -114,22 +114,22 @@ int main () {
 		4, 1, 2, 10, 1
 	};
 
-	int loop = 1;
-	int open, Choice, add, amount;
+	int loop = 1; //starts loop
+	int open, Choice, add, amount; //variables
 
-	do {
+	do { //start of loop
 		intro(open);
-		if (open == 1) {
+		if (open == 1) { //if input = 1 it displays Inventory
 			DisplayInventory(Choice, resistors, henrys, batteries, breadboard, pot, compasitors, icChips, BandS, Rstock, Hstock, Bstock, BRstock, Pstock, Cstock, ICstock, BSstock);
 
 		}
-		else if (open == 2) {
+		else if (open == 2) {// if input = 2 it will add or remove input
 			AddRemove(add, Choice, amount, resistors, henrys, batteries, breadboard, pot, compasitors, icChips, BandS, Rstock, Hstock, Bstock, BRstock, Pstock, Cstock, ICstock, BSstock);
 		}
-		else if (open == 3) {
+		else if (open == 3) { //if input = 3 it ends program
 			loop = 0;
 		}
-	} while (loop == 1);
+	} while (loop == 1);//repeats loop
 
 	return 0;
 }
@@ -149,7 +149,7 @@ void fail(const string& prompt, int& value) {
 }
 
 void intro(int& open) {
-	fail("1: View Inventory\n2: Add/Remove\n3: Exit\nChoice: ", open);
+	fail("1: View Inventory\n2: Add/Remove\n3: Exit\nChoice: ", open); //asks for input
 }
 
 void DisplayInventory(int& choice,
@@ -172,7 +172,7 @@ void DisplayInventory(int& choice,
 {
 
 	fail("Which Inventory\nResistors(1) Henrys(2) Batteries(3) Breadboard(4)\nPotentiometer(5) Compasitors(6) IC Chips(7) Buttons/switches(8)\nChoice:", choice);
-	if (choice == 1) {
+	if (choice == 1) { //depending on input displays different inventory
 		for (int i = 0; i < resistors.size(); i++) {
 			cout << resistors[i] << " (" << Rstock[i] << ") ";
 			if ((i + 1) % 4 == 0) cout << endl;
@@ -234,11 +234,11 @@ void AddRemove(int& add, int& Choice, int& amount,
                vector<int>& ICstock,
                vector<int>& BSstock)
 {
-	fail("1: Add, 2: Remove\n", add);
+	fail("1: Add, 2: Remove\n", add); //asks to add or remove
 	int category;
 	fail("Which Inventory\nResistors(1) Henrys(2) Batteries(3) Breadboard(4)\nPotentiometer(5) Compasitors(6) IC Chips(7) Buttons/switches(8)\nChoice:", category);
 
-	if (category == 1) {
+	if (category == 1) { //depending on input will choose different storage
 		cout << "Which component? (Enter number 1-" << resistors.size() << ")\n";
 		for (int i = 0; i < resistors.size(); i++) {
 			cout << "(" << i + 1 << ") " << resistors[i] << "  ";
@@ -295,13 +295,13 @@ void AddRemove(int& add, int& Choice, int& amount,
 		}
 	}
 
-	fail("\nSelection: ", Choice);
+	fail("\nSelection: ", Choice); //takes in selected component
 	int idx = Choice - 1;
 
 	if (category == 1) {
-		fail ("How many? ", amount);
+		fail ("How many? ", amount); //takes in how much you want to add/remove
 
-		if (add == 2) amount = -amount;
+		if (add == 2) amount = -amount; //if add = 2 it makes the amount you entered negitive
 
 		Rstock[idx] += amount;
 		cout << "Updated " << resistors[idx] << " total to: " << Rstock[idx] << endl;
