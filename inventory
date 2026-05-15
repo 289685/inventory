@@ -116,7 +116,10 @@ int main () {
 
 	int loop = 1; //starts loop
 	int open, Choice, add, amount; //variables
-cout << "This program is to keep track of electrical components in the shop\n";
+	cout << "====================================================================\n";
+	cout << "|This program is to keep track of electrical components in the shop|\n";
+	cout << "====================================================================\n";
+
 	do { //start of loop
 		intro(open);
 		if (open == 1) { //if input = 1 it displays Inventory
